@@ -1,6 +1,7 @@
 import streamlit as st
 from model import model
 import requests
+import pandas as pd
 
 def main():
     st.title("This will be the dashboard and stuff")
@@ -16,7 +17,10 @@ def main():
             co_field = 1
             co_url = "https://api.thingspeak.com/channels/{}/fields/{}.json?api_key={}".format(co_channel, co_field, co_read)
             co_data = requests.get(co_url).json()
-            st.write(co_data)
+            co_data = co_data['feeds']
+            co_df = pd.DataFrame(co_data)
+            st.dataframe(co_df)
+
 
 if __name__ == "__main__":
     main()
