@@ -10,7 +10,7 @@ def main():
             result = model()
         st.success("Model finished running!")
         st.write("Result from model: ",result)
-    if st.button("Get data from thingspeak"):
+    if st.button("Get data from thingspeak changed"):
         with st.spinner("Getting data..."):
             co_read = "ZKSZLC0A13S5Y2BV"
             co_channel = 2303832
