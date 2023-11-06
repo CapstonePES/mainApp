@@ -84,6 +84,7 @@ def main():
         if st.button("Click on me to check your risk."):
             with st.spinner("Fetching data from your local station and streamlit."):
                 result = model()
+            st.success("Data from your station retrieved! Running ARIMA...")
             with st.spinner("Fetching forcasts from ARIMA..."):
                 result = model()
             st.success("AQI forecast ready! Running LSTM...")
