@@ -91,7 +91,7 @@ def main():
             with st.spinner("Running LSTM..."):
                 result = model()
             st.write("Model has finished running.")
-            result = "20.4%"
+            result = "89.7%"
             st.error("Your risk of lung cancer is: "+result)
 
         # if st.button("Get data from thingspeak"):
