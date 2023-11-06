@@ -1,0 +1,12 @@
+streamlit
+requests
+pandas
+tensorflow
+numpy
+matplotlib
+math
+warnings
+statsmodels
+itertools
+sklearn
+keras
