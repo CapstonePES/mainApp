@@ -21,13 +21,13 @@ def main():
     # Choose your gender
     gender = st.radio("Male","Female")
     dust = st.slider("How allergic to dust?", 1, 8)
-    hazard = st.slider("How allergic to dust?", 1, 8)
-    gene = st.slider("How allergic to dust?", 1, 8)
-    lung_disesa = st.slider("How allergic to dust?", 1, 7)
-    smokin = st.slider("How allergic to dust?", 1, 8)
-    pass_smok = st.slider("How allergic to dust?", 1, 8)
-    nails = st.slider("How allergic to dust?", 1, 9)
-    cold = st.slider("How allergic to dust?", 1, 7)
+    hazard = st.slider("How allergic to hazard?", 1, 8)
+    gene = st.slider("How allergic to gene?", 1, 8)
+    lung_disesa = st.slider("How allergic to lung?", 1, 7)
+    smokin = st.slider("How allergic to smok?", 1, 8)
+    pass_smok = st.slider("How allergic to pass smoke?", 1, 8)
+    nails = st.slider("How allergic to nail?", 1, 9)
+    cold = st.slider("How allergic to cold?", 1, 7)
     if st.button("Submit"):
         st.text("Age: "+age+"\n dust"+str(dust)+"\n hazard"+str(hazard)+"\n gene"+str(gene)+"\n lung_disesa"+str(lung_disesa)+"\n smokin"+str(smokin)+"\n pass_smok"+str(pass_smok)+"\n nails"+str(nails)+"\n cold"+str(cold))
 
