@@ -5,6 +5,5 @@ tensorflow
 numpy
 matplotlib
 statsmodels
-itertools
 sklearn
 keras
