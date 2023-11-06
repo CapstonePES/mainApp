@@ -1,9 +1,12 @@
 import streamlit as st
 from model import model
+from test import test_func
 import requests
 import pandas as pd
 
 def main():
+    if st.button("pray to god"):
+        test_func()
     if 'values' not in st.session_state:
         st.session_state['values']=False
     co_df = pd.DataFrame()
