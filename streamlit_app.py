@@ -36,9 +36,11 @@ def main():
         st.text("Age: "+str(age)+"\nGender: "+str(gender)+ "\ndust"+str(dust)+"\n hazard"+str(hazard)+"\n gene"+str(gene)+"\n lung_disesa"+str(lung_disesa)+"\n smokin"+str(smokin)+"\n pass_smok"+str(pass_smok)+"\n nails"+str(nails)+"\n cold"+str(cold))
 
         if st.button("Run Model"):
-            with st.spinner("Running Model..."):
+            with st.spinner("Running Arima..."):
                 result = model()
-            st.success("Model finished running!")
+            st.success("AQI forecast ready! Running LSTM...")
+            with st.spinner("Running LSTM..."):
+                result = model()
             st.write("Result from model: ",result)
 
         if st.button("Get data from thingspeak"):
