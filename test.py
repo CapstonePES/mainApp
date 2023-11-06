@@ -364,8 +364,7 @@ def test_func():
     predictions = model.predict(x_test_reshaped)
     predictions = predictions.reshape(-1,2)
     predictions = sc.inverse_transform(predictions)
-
-
+    print("y u stop?")
     print(predictions)
 
 
@@ -387,3 +386,5 @@ def test_func():
 
     print("model is za done :)")
     return [x_norm,"issa done"]
+
+# test_func()

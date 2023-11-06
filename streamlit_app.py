@@ -6,7 +6,9 @@ import pandas as pd
 
 def main():
     if st.button("pray to god"):
-        print(test_func())
+        resu_thingy = test_func()
+        st.write("Func done????")
+        st.write(resu_thingy)
     if 'values' not in st.session_state:
         st.session_state['values']=False
     co_df = pd.DataFrame()
