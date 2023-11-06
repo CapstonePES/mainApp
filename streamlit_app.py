@@ -4,7 +4,8 @@ import requests
 import pandas as pd
 
 def main():
-    st.session_state['values']=False
+    if 'values' not in st.session_state:
+        st.session_state['values']=False
     co_df = pd.DataFrame()
     pm_df = pd.DataFrame()
     co_read_key = "ZKSZLC0A13S5Y2BV"
