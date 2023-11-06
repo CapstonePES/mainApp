@@ -4,7 +4,6 @@ pandas
 tensorflow
 numpy
 matplotlib
-warnings
 statsmodels
 itertools
 sklearn
