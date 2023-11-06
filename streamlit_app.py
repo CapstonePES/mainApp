@@ -58,28 +58,28 @@ def main():
     a = st.button("Submit")
     if a or st.session_state["values"]:
         st.session_state["values"] = True
-        st.text(
-            "Age: "
-            + str(age)
-            + "\nGender: "
-            + str(gender)
-            + "\ndust"
-            + str(dust)
-            + "\n hazard"
-            + str(hazard)
-            + "\n gene"
-            + str(gene)
-            + "\n lung_disesa"
-            + str(lung_disesa)
-            + "\n smokin"
-            + str(smokin)
-            + "\n pass_smok"
-            + str(pass_smok)
-            + "\n nails"
-            + str(nails)
-            + "\n cold"
-            + str(cold)
-        )
+        # st.text(
+        #     "Age: "
+        #     + str(age)
+        #     + "\nGender: "
+        #     + str(gender)
+        #     + "\ndust"
+        #     + str(dust)
+        #     + "\n hazard"
+        #     + str(hazard)
+        #     + "\n gene"
+        #     + str(gene)
+        #     + "\n lung_disesa"
+        #     + str(lung_disesa)
+        #     + "\n smokin"
+        #     + str(smokin)
+        #     + "\n pass_smok"
+        #     + str(pass_smok)
+        #     + "\n nails"
+        #     + str(nails)
+        #     + "\n cold"
+        #     + str(cold)
+        # )
 
         if st.button("Click on me to check your risk."):
             with st.spinner("Fetching data from your local station and streamlit."):
