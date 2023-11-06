@@ -5,5 +5,5 @@ tensorflow
 numpy
 matplotlib
 statsmodels
-sklearn
+scikit-learn
 keras
