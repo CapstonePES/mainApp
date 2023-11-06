@@ -17,7 +17,7 @@ def main():
     st.title("This will be the dashboard and stuff")
 
     # accept age 
-    age = st.number_input("Enter your age: ")
+    age = st.number_input("Enter your age: ",step=1,min_value=0,max_value=100)
     # Choose your gender
     gender = st.radio("Male","Female")
     dust = st.slider("How allergic to dust?", 1, 8)
