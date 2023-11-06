@@ -17,7 +17,7 @@ def main():
     st.title("This will be the dashboard and stuff")
 
     # accept age 
-    age = st.text_input("Enter your age: ")
+    age = st.number_input("Enter your age: ")
     # Choose your gender
     gender = st.radio("Male","Female")
     dust = st.slider("How allergic to dust?", 1, 8)
@@ -29,7 +29,7 @@ def main():
     nails = st.slider("How allergic to nail?", 1, 9)
     cold = st.slider("How allergic to cold?", 1, 7)
     if st.button("Submit"):
-        st.text("Age: "+age+"\n dust"+str(dust)+"\n hazard"+str(hazard)+"\n gene"+str(gene)+"\n lung_disesa"+str(lung_disesa)+"\n smokin"+str(smokin)+"\n pass_smok"+str(pass_smok)+"\n nails"+str(nails)+"\n cold"+str(cold))
+        st.text("Age: "+age+"\nGender: "+str(gender)+ "\ndust"+str(dust)+"\n hazard"+str(hazard)+"\n gene"+str(gene)+"\n lung_disesa"+str(lung_disesa)+"\n smokin"+str(smokin)+"\n pass_smok"+str(pass_smok)+"\n nails"+str(nails)+"\n cold"+str(cold))
 
         if st.button("Run Model"):
             with st.spinner("Running Model..."):
