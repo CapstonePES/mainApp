@@ -8,6 +8,7 @@ from tensorflow.keras.layers import LSTM, Dense
 
 import warnings
 def test_func():
+    print("okie model start now uwu")
     warnings.simplefilter("ignore")
 
     df = pd.read_csv("./content/station_day.csv")
@@ -340,10 +341,12 @@ def test_func():
 
 
 
-    print(x_test)
+    # print(x_test)
 
 
-    print(y_test)
+    # print(y_test)
+
+    print("Now we do za predict")
 
 
     #predictions = model.predict(x_test)
@@ -382,11 +385,4 @@ def test_func():
     x_norm = (x-np.min(x))/(np.max(x)-np.min(x))
     print(x_norm)
 
-
-
-
-
-
-
-
-
+    print("model is za done :)")
