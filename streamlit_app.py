@@ -19,7 +19,7 @@ def main():
     # accept age 
     age = st.number_input("Enter your age: ",step=1,min_value=0,max_value=100)
     # Choose your gender
-    gender = st.radio("Male","Female")
+    gender = st.radio(label="gender",options=["Male","Female"])
     dust = st.slider("How allergic to dust?", 1, 8)
     hazard = st.slider("How allergic to hazard?", 1, 8)
     gene = st.slider("How allergic to gene?", 1, 8)
