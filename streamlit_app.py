@@ -91,7 +91,7 @@ def main():
                 result = model()
             st.write("Model has finished running.")
             result = "20.4%"
-            st.success("Your risk of lung cancer is: ", result)
+            st.success("Your risk of lung cancer is: "+result)
 
         # if st.button("Get data from thingspeak"):
         #     with st.spinner("Getting data..."):
