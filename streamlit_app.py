@@ -27,7 +27,7 @@ def main():
     pm_url = "https://api.thingspeak.com/channels/{}/fields/{}.json?api_key={}".format(
         pm_channel, pm_field, pm_read_key
     )
-    st.title("This will be the dashboard and stuff")
+    st.title("Welcome to your dashboard")
 
     # accept age
     age = st.number_input("Please enter your age: ", step=1, min_value=0, max_value=100)
@@ -44,7 +44,7 @@ def main():
         1,
         8,
     )
-    lung_disesa = st.slider("Do you currently have any chronic lung disease?", 1, 7)
+    lung_disesa = st.slider("Do you currently have any chronic lung disease? If yes how drastic?", 1, 7)
     smokin = st.slider("On a scale of 1-8 how often do you smoke?", 1, 8)
     pass_smok = st.slider(
         "On a scale of 1 to 8, what would be your exposure to cigarette smoke?", 1, 8
