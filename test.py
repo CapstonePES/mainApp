@@ -2,7 +2,6 @@ from tensorflow import keras
 import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
-import seaborn as sns
 import tensorflow.keras as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
