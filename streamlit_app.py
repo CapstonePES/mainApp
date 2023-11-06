@@ -25,17 +25,17 @@ def main():
     st.title("This will be the dashboard and stuff")
 
     # accept age 
-    age = st.number_input("Enter your age: ",step=1,min_value=0,max_value=100)
+    age = st.number_input("Please enter your age: ",step=1,min_value=0,max_value=100)
     # Choose your gender
     gender = st.radio(label="gender",options=["Male","Female"])
-    dust = st.slider("How allergic to dust?", 1, 8)
-    hazard = st.slider("How allergic to hazard?", 1, 8)
-    gene = st.slider("How allergic to gene?", 1, 8)
-    lung_disesa = st.slider("How allergic to lung?", 1, 7)
-    smokin = st.slider("How allergic to smok?", 1, 8)
-    pass_smok = st.slider("How allergic to pass smoke?", 1, 8)
-    nails = st.slider("How allergic to nail?", 1, 9)
-    cold = st.slider("How allergic to cold?", 1, 7)
+    dust = st.slider("On a Scale of 1 to 8, how allergic are you to dust particles?", 1, 8)
+    hazard = st.slider("On a scale of 1 to 8, how would you classify your occupational hazards?", 1, 8)
+    gene = st.slider("On a scale of 1 to 8, how would you classify your genetic risk of lung cancer?", 1, 8)
+    lung_disesa = st.slider("Do you currently have any chronic lung disease?", 1, 7)
+    smokin = st.slider("Do you smoke?", 1, 8)
+    pass_smok = st.slider("On a scale of 1 to 8, what would be your exposure to cigarette smoke?", 1, 8)
+    nails = st.slider("Have you noticed any clubbing of finger nails?", 1, 9)
+    cold = st.slider("On a scale of 1 to 7, how frequently do you contract a cold?", 1, 7)
     a = st.button("Submit")
     if a or st.session_state['values']:
         st.session_state['values']=True
