@@ -6,6 +6,7 @@ import pandas as pd
 
 def main():
     if st.button("pray to god"):
+        st.write("okie call start")
         resu_thingy = test_func()
         st.write("Func done????")
         st.write(resu_thingy)
