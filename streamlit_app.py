@@ -28,7 +28,8 @@ def main():
     pass_smok = st.slider("How allergic to pass smoke?", 1, 8)
     nails = st.slider("How allergic to nail?", 1, 9)
     cold = st.slider("How allergic to cold?", 1, 7)
-    if st.button("Submit"):
+    a = st.button("Submit")
+    if a:
         st.text("Age: "+str(age)+"\nGender: "+str(gender)+ "\ndust"+str(dust)+"\n hazard"+str(hazard)+"\n gene"+str(gene)+"\n lung_disesa"+str(lung_disesa)+"\n smokin"+str(smokin)+"\n pass_smok"+str(pass_smok)+"\n nails"+str(nails)+"\n cold"+str(cold))
 
         if st.button("Run Model"):
