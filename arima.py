@@ -24,7 +24,7 @@ def arima(aqi):
     arima_df = df[["Date", "AQI"]].copy()
     arima_df.dropna(inplace=True)
 
-    return arima_df
+    # return arima_df
 
 
     arima_df["Date"] = pd.to_datetime(arima_df["Date"])

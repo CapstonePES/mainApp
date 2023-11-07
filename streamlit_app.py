@@ -51,7 +51,7 @@ def main():
         "On a scale of 1 to 10, what would be your exposure to cigarette smoke?", 1, 10
     )
     nails = st.slider(
-        "Have you noticed any clubbing of finger nails? If yes how extreme is it?", 1, 9
+        "Have you noticed any clubbing of finger nails? If yes how extreme is it?", 1, 10
     )
     cold = st.slider(
         "On a scale of 1 to 10, how frequently do you contract a cold?", 1, 10
