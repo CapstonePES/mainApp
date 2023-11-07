@@ -8,8 +8,6 @@ def arima(aqi):
 
     df = pd.read_csv("./content/station_day.csv")
     df1 = df.dropna()
-    lstm_df = pd.read_excel("./content/cancer patient data sets.xlsx")
-
 
     def remove_outliers(df1, column_name):
         Q1 = df1["AQI"].quantile(0.25)
@@ -23,6 +21,8 @@ def arima(aqi):
     df1 = remove_outliers(df1, "AQI")
 
     arima_df = df[["Date", "AQI"]]
+
+    return arima_df
 
 
     arima_df["Date"] = pd.to_datetime(arima_df["Date"])

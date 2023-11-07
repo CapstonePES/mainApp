@@ -88,11 +88,12 @@ def main():
             st.success("Data from your station retrieved! Running ARIMA...")
             with st.spinner("Fetching forcasts from ARIMA..."):
                 result = arima(150)
-            st.success("AQI forecast ready! Running LSTM...")
-            with st.spinner("Running LSTM..."):
-                result = model([age/10, dust, hazard, gene, lung_disesa, smokin, pass_smok, nails, cold])
-            st.write("Model has finished running.")
-            st.error("Your risk of lung cancer is: "+str(result)+"%")
+            st.write(result)
+            # st.success("AQI forecast ready! Running LSTM...")
+            # with st.spinner("Running LSTM..."):
+            #     result = model([age/10, dust, hazard, gene, lung_disesa, smokin, pass_smok, nails, cold])
+            # st.write("Model has finished running.")
+            # st.error("Your risk of lung cancer is: "+str(result)+"%")
 
         if st.button("Get data from thingspeak"):
             with st.spinner("Getting data..."):
