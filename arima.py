@@ -19,8 +19,10 @@ def arima(aqi):
 
 
     df1 = remove_outliers(df1, "AQI")
+    
 
     arima_df = df[["Date", "AQI"]]
+    arima_df.dropna(inplace=True)
 
     return arima_df
 
