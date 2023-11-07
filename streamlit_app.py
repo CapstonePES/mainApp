@@ -33,7 +33,7 @@ def main():
     # accept age
     age = st.number_input("Please enter your age: ", step=1, min_value=0, max_value=100)
     # Choose your gender
-    gender = st.radio(label="What's your gender?", options=["Male", "Female"])
+    gender = st.radio(label="Please select your gender?", options=["Male", "Female"])
     dust = st.slider(
         "On a Scale of 1 to 10, how allergic are you to dust particles?", 1, 10
     )
@@ -91,14 +91,14 @@ def main():
             st.write(result)
             st.success("AQI forecast ready! Running LSTM...")
             with st.spinner("Running LSTM..."):
-                result = lstm([age/10, dust, hazard, gene, lung_disesa, smokin, pass_smok, nails, cold])
+                result = lstm([age/10, dust, hazard, gene, lung_disesa, smokin, pass_smok, nails, cold])/100
             st.write("Model has finished running.")
             if result >40 and result > 75:
-                st.error("Your risk of lung cancer is: "+str(result)+"%")
+                st.error("Your lung cancer incidence rate is: "+str(result)+"%")
             elif result<40:
-                st.success("Your risk of lung cancer is: "+str(result)+"%")
+                st.success("Your lung cancer incidence rate is: "+str(result)+"%")
             else:
-                st.warning("Your risk of lung cancer is: "+str(result)+"%")
+                st.warning("Your lung cancer incidence rate is: "+str(result)+"%")
 
         if st.button("Get data from thingspeak"):
             with st.spinner("Getting data..."):
