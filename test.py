@@ -387,4 +387,4 @@ def test_func():
     print("model is za done :)")
     return [x_norm,"issa done"]
 
-# test_func()
+test_func()

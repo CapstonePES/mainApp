@@ -1,6 +1,7 @@
 import streamlit as st
 from model import model
-from test import test_func
+from arima import arima
+from lstm import lstm
 import requests
 import pandas as pd
 
@@ -34,26 +35,26 @@ def main():
     # Choose your gender
     gender = st.radio(label="What's your gender?", options=["Male", "Female"])
     dust = st.slider(
-        "On a Scale of 1 to 8, how allergic are you to dust particles?", 1, 8
+        "On a Scale of 1 to 10, how allergic are you to dust particles?", 1, 10
     )
     hazard = st.slider(
-        "On a scale of 1 to 8, how would you classify your occupational hazards?", 1, 8
+        "On a scale of 1 to 10, how would you classify your occupational hazards?", 1, 10
     )
     gene = st.slider(
-        "On a scale of 1 to 8, how would you classify your genetic risk of lung cancer?",
+        "On a scale of 1 to 10, how would you classify your genetic risk of lung cancer?",
         1,
-        8,
+        10,
     )
-    lung_disesa = st.slider("Do you currently have any chronic lung disease? If yes how drastic?", 1, 7)
-    smokin = st.slider("On a scale of 1-8 how often do you smoke?", 1, 8)
+    lung_disesa = st.slider("Do you currently have any chronic lung disease? If yes how drastic?", 1, 10)
+    smokin = st.slider("On a scale of 1-10 how often do you smoke?", 1, 10)
     pass_smok = st.slider(
-        "On a scale of 1 to 8, what would be your exposure to cigarette smoke?", 1, 8
+        "On a scale of 1 to 10, what would be your exposure to cigarette smoke?", 1, 10
     )
     nails = st.slider(
         "Have you noticed any clubbing of finger nails? If yes how extreme is it?", 1, 9
     )
     cold = st.slider(
-        "On a scale of 1 to 7, how frequently do you contract a cold?", 1, 7
+        "On a scale of 1 to 10, how frequently do you contract a cold?", 1, 10
     )
     a = st.button("Submit")
     if a or st.session_state["values"]:
@@ -86,10 +87,10 @@ def main():
                 result = model()
             st.success("Data from your station retrieved! Running ARIMA...")
             with st.spinner("Fetching forcasts from ARIMA..."):
-                result = model()
+                result = arima(150)
             st.success("AQI forecast ready! Running LSTM...")
             with st.spinner("Running LSTM..."):
-                result = model()
+                result = model([age/10, dust, hazard, gene, lung_disesa, smokin, pass_smok, nails, cold])
             st.write("Model has finished running.")
             result = "89.7%"
             st.error("Your risk of lung cancer is: "+result)
