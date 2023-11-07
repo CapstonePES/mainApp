@@ -27,7 +27,7 @@ def arima(aqi):
     # return arima_df
 
 
-    arima_df["Date"] = pd.to_datetime(arima_df["Date"])
+    # arima_df["Date"] = pd.to_datetime(arima_df["Date"])
 
 
     arima_df.AQI = arima_df.groupby(pd.PeriodIndex(arima_df["Date"], freq="M"))[
