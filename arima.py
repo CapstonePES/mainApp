@@ -1,13 +1,12 @@
 
 import pandas as pd
 import numpy as np
-import warnings
-from statsmodels.tools.sm_exceptions import ConvergenceWarning
-def arima(aqi):
-    warnings.simplefilter('ignore', [ConvergenceWarning])
 
+def arima(aqi_value):
     df = pd.read_csv("./content/station_day.csv")
     df1 = df.dropna()
+    lstm_df = pd.read_excel("./content/cancer patient data sets.xlsx")
+
 
     def remove_outliers(df1, column_name):
         Q1 = df1["AQI"].quantile(0.25)
@@ -19,15 +18,11 @@ def arima(aqi):
 
 
     df1 = remove_outliers(df1, "AQI")
-    
 
-    arima_df = df[["Date", "AQI"]].copy()
-    arima_df.dropna(inplace=True)
-
-    # return arima_df
+    arima_df = df[["Date", "AQI"]]
 
 
-    # arima_df["Date"] = pd.to_datetime(arima_df["Date"])
+    arima_df["Date"] = pd.to_datetime(arima_df["Date"])
 
 
     arima_df.AQI = arima_df.groupby(pd.PeriodIndex(arima_df["Date"], freq="M"))[
@@ -100,9 +95,9 @@ def arima(aqi):
     arima_predict = model_ts_fit.predict(start=len(ts_train), end=len(ts))
 
 
-    # import matplotlib.pyplot as plt
+    import matplotlib.pyplot as plt
 
-    # residuals = model_ts_fit.resid[1:]
+    residuals = model_ts_fit.resid[1:]
     # fig, ax = plt.subplots(1, 2)
     # residuals.plot(title="Residuals", ax=ax[0])
     # residuals.plot(title="Density", kind="kde", ax=ax[1])
@@ -137,7 +132,7 @@ def arima(aqi):
 
 
     # Assume avg_aqi is the average AQI for a month
-    avg_aqi = aqi
+    avg_aqi = 150
 
     # Convert the average AQI to a pandas Series
     new_data = pd.Series([avg_aqi])
