@@ -91,7 +91,7 @@ def main():
             st.write(result)
             st.success("AQI forecast ready! Running LSTM...")
             with st.spinner("Running LSTM..."):
-                result = model([age/10, dust, hazard, gene, lung_disesa, smokin, pass_smok, nails, cold])
+                result = lstm([age/10, dust, hazard, gene, lung_disesa, smokin, pass_smok, nails, cold])
             st.write("Model has finished running.")
             st.error("Your risk of lung cancer is: "+str(result)+"%")
 
