@@ -5,6 +5,6 @@ import random
 
 def lstm(a):
     # DUMMY FUNCTION REMOVE LATER!!!!!!!!
-    a = [(i/7)*random.uniform(0.8,1.0) for i in a]
-    s = sum(a)
+    a = [(i/8)*random.uniform(0.8,1.0) for i in a]
+    s = sum(a)*10
     return s

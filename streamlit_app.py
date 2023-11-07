@@ -93,7 +93,12 @@ def main():
             with st.spinner("Running LSTM..."):
                 result = lstm([age/10, dust, hazard, gene, lung_disesa, smokin, pass_smok, nails, cold])
             st.write("Model has finished running.")
-            st.error("Your risk of lung cancer is: "+str(result)+"%")
+            if result >40 and result > 75:
+                st.error("Your risk of lung cancer is: "+str(result)+"%")
+            elif result<40:
+                st.success("Your risk of lung cancer is: "+str(result)+"%")
+            else:
+                st.warning("Your risk of lung cancer is: "+str(result)+"%")
 
         if st.button("Get data from thingspeak"):
             with st.spinner("Getting data..."):
