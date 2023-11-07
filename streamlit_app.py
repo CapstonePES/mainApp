@@ -94,23 +94,24 @@ def main():
             result = "89.7%"
             st.error("Your risk of lung cancer is: "+result)
 
-        # if st.button("Get data from thingspeak"):
-        #     with st.spinner("Getting data..."):
-        #         co_data = requests.get(co_url).json()
-        #         co_data = co_data['feeds']
-        #         co_df = pd.DataFrame(co_data)
-        #         pm_data = requests.get(pm_url).json()
-        #         pm_data = pm_data['feeds']
-        #         pm_df = pd.DataFrame(pm_data)
+        if st.button("Get data from thingspeak"):
+            with st.spinner("Getting data..."):
+                co_data = requests.get(co_url).json()
+                st.write(co_data)
+                co_data = co_data['feeds']
+                co_df = pd.DataFrame(co_data)
+                pm_data = requests.get(pm_url).json()
+                pm_data = pm_data['feeds']
+                pm_df = pd.DataFrame(pm_data)
 
-        # if co_df.empty == False and pm_df.empty == False:
-        #     co_col, pm_col = st.columns(2)
-        #     with co_col:
-        #         st.title("CO Data")
-        #         st.dataframe(co_df)
-        #     with pm_col:
-        #         st.title("PM Data")
-        #         st.dataframe(pm_df)
+        if co_df.empty == False and pm_df.empty == False:
+            co_col, pm_col = st.columns(2)
+            with co_col:
+                st.title("CO Data")
+                st.dataframe(co_df)
+            with pm_col:
+                st.title("PM Data")
+                st.dataframe(pm_df)
 
 
 if __name__ == "__main__":
