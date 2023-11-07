@@ -93,9 +93,9 @@ def main():
             with st.spinner("Running LSTM..."):
                 result = lstm([age/10, dust, hazard, gene, lung_disesa, smokin, pass_smok, nails, cold])/100
             st.write("Model has finished running.")
-            if result >40 and result > 75:
+            if result >0.4 and result > 0.75:
                 st.error("Your lung cancer incidence rate is: "+str(result)+"%")
-            elif result<40:
+            elif result<0.4:
                 st.success("Your lung cancer incidence rate is: "+str(result)+"%")
             else:
                 st.warning("Your lung cancer incidence rate is: "+str(result)+"%")
