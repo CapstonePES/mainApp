@@ -7,11 +7,6 @@ import pandas as pd
 
 
 def main():
-    # if st.button("pray to god"):
-    #     st.write("okie call start")
-    #     resu_thingy = test_func()
-    #     st.write("Func done????")
-    #     st.write(resu_thingy)
     if "values" not in st.session_state:
         st.session_state["values"] = False
     co_df = pd.DataFrame()
@@ -29,10 +24,7 @@ def main():
         pm_channel, pm_field, pm_read_key
     )
     st.title("Welcome to your dashboard")
-
-    # accept age
     age = st.number_input("Please enter your age: ", step=1, min_value=0, max_value=100)
-    # Choose your gender
     gender = st.radio(label="Please select your gender?", options=["Male", "Female"])
     dust = st.slider(
         "On a Scale of 1 to 10, how allergic are you to dust particles?", 1, 10
@@ -59,39 +51,21 @@ def main():
     a = st.button("Submit")
     if a or st.session_state["values"]:
         st.session_state["values"] = True
-        # st.text(
-        #     "Age: "
-        #     + str(age)
-        #     + "\nGender: "
-        #     + str(gender)
-        #     + "\ndust"
-        #     + str(dust)
-        #     + "\n hazard"
-        #     + str(hazard)
-        #     + "\n gene"
-        #     + str(gene)
-        #     + "\n lung_disesa"
-        #     + str(lung_disesa)
-        #     + "\n smokin"
-        #     + str(smokin)
-        #     + "\n pass_smok"
-        #     + str(pass_smok)
-        #     + "\n nails"
-        #     + str(nails)
-        #     + "\n cold"
-        #     + str(cold)
-        # )
-
         if st.button("Click on me to check your risk."):
             with st.spinner("Fetching data from your local station and streamlit."):
-                result = model()
+                co_data = requests.get(co_url).json()
+                co_data = co_data['feeds']
+                co_df = pd.DataFrame(co_data)
+                pm_data = requests.get(pm_url).json()
+                pm_data = pm_data['feeds']
+                pm_df = pd.DataFrame(pm_data)
             st.success("Data from your station retrieved! Running ARIMA...")
             with st.spinner("Fetching forcasts from ARIMA..."):
-                result = arima(150)
+                result = arima(co_df,pm_df)
             st.write(result)
             st.success("AQI forecast ready! Running LSTM...")
             with st.spinner("Running LSTM..."):
-                result = lstm([age/10, dust, hazard, gene, lung_disesa, smokin, pass_smok, nails, cold])/100
+                result = lstm([result,age/10, dust, hazard, gene, lung_disesa, smokin, pass_smok, nails, cold])/100
             st.write("Model has finished running.")
             if result >0.4 and result > 0.75:
                 st.error("Your lung cancer incidence rate is: "+str(result))
