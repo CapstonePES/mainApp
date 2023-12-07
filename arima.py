@@ -2,7 +2,8 @@
 import pandas as pd
 import numpy as np
 
-def arima(aqi_value):
+def arima(co_df,pm_df):
+    
     df = pd.read_csv("./content/station_day.csv")
     df1 = df.dropna()
     lstm_df = pd.read_excel("./content/cancer patient data sets.xlsx")
