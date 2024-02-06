@@ -17,7 +17,7 @@ def main():
     co_url = "https://api.thingspeak.com/channels/{}/fields/{}.json?api_key={}".format(
         co_channel, co_field, co_read_key
     )
-    pm_read_key = "PS8QAYOFT2YUUF11"
+    pm_read_key = "G1PW99IDKTRCSMZM"
     pm_channel = 2253626
     pm_field = 3
     pm_url = "https://api.thingspeak.com/channels/{}/fields/{}.json?api_key={}".format(
