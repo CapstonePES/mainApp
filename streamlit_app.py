@@ -74,15 +74,15 @@ def main():
             else:
                 st.warning("Your lung cancer incidence rate is: "+str(result))
 
-        # if st.button("Get data from thingspeak"):
-        #     with st.spinner("Getting data..."):
-        #         co_data = requests.get(co_url).json()
-        #         st.write(co_data)
-        #         co_data = co_data['feeds']
-        #         co_df = pd.DataFrame(co_data)
-        #         pm_data = requests.get(pm_url).json()
-        #         pm_data = pm_data['feeds']
-        #         pm_df = pd.DataFrame(pm_data)
+        if st.button("Get data from thingspeak"):
+            with st.spinner("Getting data..."):
+                co_data = requests.get(co_url).json()
+                st.write(co_data)
+                co_data = co_data['feeds']
+                co_df = pd.DataFrame(co_data)
+                pm_data = requests.get(pm_url).json()
+                pm_data = pm_data['feeds']
+                pm_df = pd.DataFrame(pm_data)
 
         if co_df.empty == False and pm_df.empty == False:
             co_col, pm_col = st.columns(2)
