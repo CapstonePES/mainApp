@@ -27,26 +27,26 @@ def main():
     age = st.number_input("Please enter your age: ", step=1, min_value=0, max_value=100)
     gender = st.radio(label="Please select your gender?", options=["Male", "Female"])
     dust = st.slider(
-        "On a Scale of 1 to 10, how allergic are you to dust particles?", 1, 10
+        "On a Scale of 0 to 10, how allergic are you to dust particles?", 0, 10
     )
     hazard = st.slider(
-        "On a scale of 1 to 10, how would you classify your occupational hazards?", 1, 10
+        "On a scale of 0 to 10, how would you classify your occupational hazards?", 0, 10
     )
     gene = st.slider(
-        "On a scale of 1 to 10, how would you classify your genetic risk of lung cancer?",
-        1,
+        "On a scale of 0 to 10, how would you classify your genetic risk of lung cancer?",
+        0,
         10,
     )
-    lung_disesa = st.slider("Do you currently have any chronic lung disease? If yes how drastic?", 1, 10)
-    smokin = st.slider("On a scale of 1-10 how often do you smoke?", 1, 10)
+    lung_disesa = st.slider("Do you currently have any chronic lung disease? If yes how drastic?", 0, 10)
+    smokin = st.slider("On a scale of 1-10 how often do you smoke?", 0, 10)
     pass_smok = st.slider(
-        "On a scale of 1 to 10, what would be your exposure to cigarette smoke?", 1, 10
+        "On a scale of 0 to 10, what would be your exposure to cigarette smoke?", 0, 10
     )
     nails = st.slider(
-        "Have you noticed any clubbing of finger nails? If yes how extreme is it?", 1, 10
+        "Have you noticed any clubbing of finger nails? If yes how extreme is it?", 0, 10
     )
     cold = st.slider(
-        "On a scale of 1 to 10, how frequently do you contract a cold?", 1, 10
+        "On a scale of 0 to 10, how frequently do you contract a cold?", 0, 10
     )
     a = st.button("Submit")
     if a or st.session_state["values"]:
