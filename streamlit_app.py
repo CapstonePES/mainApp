@@ -23,7 +23,7 @@ def main():
     pm_url = "https://api.thingspeak.com/channels/{}/fields/{}.json?api_key={}".format(
         pm_channel, pm_field, pm_read_key
     )
-    st.title("Welcome to your dashboard")
+    st.title("Get your lung cancer predictions here!")
     age = st.number_input("Please enter your age: ", step=1, min_value=0, max_value=100)
     gender = st.radio(label="Please select your gender?", options=["Male", "Female"])
     dust = st.slider(
